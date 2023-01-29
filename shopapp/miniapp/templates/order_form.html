@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% if formset %}
+        {{formset.management_form}}
+        {% for form in formset %}
+            {{form}} <hr>
+        {% endfor %}
+    {% endif %}
+   
+    {% if form %}
+    {% for form1 in form %}
+    <div class="form-group">
+        <div class="row">
+          <div class="col-sm-1"> {{form1.label}} </div>
+          <div class="col-sm-10">{{form1}}</div>
+        </div><hr> 
+    </div> 
+       
+    {% endfor %}
+    {% endif %}
+    <input type="submit" value="Add Order" class="btn btn-outline-info">
+</form>
+{% endblock content %}

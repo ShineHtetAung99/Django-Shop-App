@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure want to delete that {{order}}?</p>
+   
+    <tr>
+        <td><a href="{% url 'orders' %}" class="btn btn-outline-secondary">cancel</a></td>
+        <td><input type="submit" value="OK" class="btn btn-outline-info"></td>
+    </tr>
+</form>
+{% endblock content %}

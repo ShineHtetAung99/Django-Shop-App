@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h2>Products</h2>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <a class="btn btn-primary" href="{% url 'product.create' %}">Add Product</a>
+                <tr>
+                    <th>Id</th>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                
+                {% for product in products %}
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.price}}</td>
+                    <td><a href="{% url 'product.update' product.id %}" class="btn btn-success">Edit</a></td>
+                    <td><a href="{% url 'product.delete' product.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

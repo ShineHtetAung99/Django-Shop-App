@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h2>Customers</h2>
+        </div>
+        <div class="card card-body">
+            <a class="btn btn-primary" href="{% url 'customer.create' %}">Create Customer</a>
+            <table class="table">
+                
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                
+                
+                {% for customer1 in customer %}
+                <tr>
+                    <td>{{customer1.id}}</td>
+                    <td>{{customer1.name}}</td>
+                    <td>{{customer1.email}}</td>
+                    <td>{{customer1.phone}}</td>
+                    <td>{{customer1.address}}</td>
+                    <td><a href="{% url 'customer.show' customer1.id %}" class="btn btn-warning">view</a></td>
+					<td><a href="{% url 'customer.delete' customer1.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

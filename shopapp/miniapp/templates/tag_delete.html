@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure want to delete that {{tag}}?</p>
+    <tr>
+        <td><a href="{% url 'tags' %}" class="btn btn-outline-secondary">cancel</a></td>
+        <td><input type="submit" value="OK" class="btn btn-outline-info"></td>
+    </tr>
+</form>
+{% endblock content %}
